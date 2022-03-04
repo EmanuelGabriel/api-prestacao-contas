@@ -56,10 +56,11 @@ public class ItemPrestacaoContasController {
 		return lista != null ? ResponseEntity.ok().body(lista) : ResponseEntity.ok().build();
 	}
 	
-	@GetMapping(value = "teste/ug-nome")
-	public ResponseEntity<Page<ItemPrestacacaoContasCSVResponseDTO>> buscarPorNomeUnidadeGestoraTESTE(
-			@RequestParam(value = "nome") String nome, @PageableDefault(page = 0, size = 10) Pageable pageable) {
-		log.info("GET /v1/item-prestacao-contas/teste/ug-nome/{} -> {};{}", nome, pageable.getPageNumber(), pageable.getPageSize());
+	@GetMapping(value = "/nome-unidade-gestora")
+	public ResponseEntity<Page<ItemPrestacacaoContasCSVResponseDTO>> buscarUnidadeGestoraPorNome(
+			@RequestParam(value = "nome") String nome, 
+			@PageableDefault(page = 0, size = 10) Pageable pageable) {
+		log.info("GET /v1/item-prestacao-contas/nome-unidade-gestora -> {};{};{}", nome, pageable.getPageNumber(), pageable.getPageSize());
 		var pageLista = service.buscarPorNomeUnidadeGestora(nome, pageable);
 		return pageLista != null ? ResponseEntity.ok().body(pageLista) : ResponseEntity.ok().build();
 	}

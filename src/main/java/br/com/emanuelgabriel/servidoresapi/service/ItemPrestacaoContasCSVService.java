@@ -65,7 +65,7 @@ public class ItemPrestacaoContasCSVService {
 
 	public Page<ItemPrestacacaoContasCSVResponseDTO> buscarPorNomeUnidadeGestora(String nome, Pageable pageable) {
 		
-		log.info("Buscar por nome da unidade gestora: {}; {};{}", nome, pageable.getPageNumber(), pageable.getPageSize());
+		log.info("Buscar por nome da unidade gestora - nomeUnidadeGestora: {}; PageNumber: {}; PageSize: {}", nome, pageable.getPageNumber(), pageable.getPageSize());
 
 		var query = new Query().addCriteria(Criteria.where("unidade_gestora.nome").is(nome)).with(pageable);
 		
